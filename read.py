@@ -50,10 +50,13 @@ try:
             eth_cat_header = frame[START_ETHC_HDR:END_ETHC_HDR].hex()
             num_of_bits = 16
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
-            length_datagrams = int(from_binary[0:11], 2)
-            resereved = from_binary[12]
-            ethcat_type = from_binary[13:]
+            length_datagrams = int(from_binary[5:16], 2)
+            resereved = from_binary[4:5]
+            ethcat_type = from_binary[0:4]
+
             length_byte = length_datagrams // 8
+            print(from_binary)
+            print(ethcat_type, resereved, from_binary[5:16])
             process_diagrams(frame[START_ETHC_DATAG : START_ETHC_DATAG + length_byte])
 
 
