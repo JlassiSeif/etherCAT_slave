@@ -40,7 +40,7 @@ try:
     while True:
         frame = s.recv(1518)
         hex_frame = frame.hex()
-        print(hex_frame)
+
         # extract the destination and source MAC addresses from the frame
         dest_mac = frame[START_DEST_MAC:END_DEST_MAC].hex()
         src_mac = frame[START_SRC_MAC:END_SRC_MAC].hex()
@@ -48,6 +48,9 @@ try:
         # extract the Ethernet protocol type from the frame
         eth_type = frame[START_ETH_TYPE:END_ETH_TYPE].hex()
         if eth_type == "88a4":  # 0x88a4:
+            print("aaaaaaaaaaaaa")
+            print(hex_frame)
+            print("aaaaaaaaaaaaa")
             eth_cat_header = frame[START_ETHC_HDR:END_ETHC_HDR].hex()
             num_of_bits = 16
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
