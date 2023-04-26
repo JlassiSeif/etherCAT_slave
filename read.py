@@ -30,7 +30,7 @@ try:
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
             print(from_binary)
             length_datagrams = from_binary[0:11]
-            print(int(length_datagrams), 2)
+            print(int(length_datagrams, 2))
             resereved = from_binary[12]
             ethcat_type = from_binary[13:]
         # # print the destination and source MAC addresses and Ethernet protocol type
