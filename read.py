@@ -11,10 +11,11 @@ try:
     while True:
         # read an incoming Ethernet frame
         # frame, addr = s.recvfrom(65535)
-        frame = s.recv(1518).hex()
-
+        frame = s.recv(1518)
+        hex_frame = frame.hex()
+        print(hex_frame)
         # extract the destination and source MAC addresses from the frame
-        dest_mac = frame[:6].hex()
+        dest_mac = frame[:6]
         src_mac = frame[6:12]
 
         # extract the Ethernet protocol type from the frame
