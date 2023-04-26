@@ -18,14 +18,15 @@ try:
         src_mac = frame[6:12]
 
         # extract the Ethernet protocol type from the frame
-        eth_type = int.from_bytes(frame[12:14], byteorder="big")
-        eth_cat_header = int.from_bytes(frame[14:16], byteorder="big")
-        print(bin(eth_cat_header))
-        from_binary = bin(eth_cat_header)
-        length_datagrams = from_binary[0:11]
-        resereved = from_binary[12]
-        ethcat_type = from_binary[13:]
-        print(length_datagrams, resereved, ethcat_type)
+        if hex(eth_type) == 0x88A4:
+            eth_type = int.from_bytes(frame[12:14], byteorder="big")
+            eth_cat_header = int.from_bytes(frame[14:16], byteorder="big")
+            print(bin(eth_cat_header))
+            from_binary = bin(eth_cat_header)
+            length_datagrams = from_binary[0:11]
+            resereved = from_binary[12]
+            ethcat_type = from_binary[13:]
+            print(length_datagrams, resereved, ethcat_type)
         # # print the destination and source MAC addresses and Ethernet protocol type
         # print("Destination MAC address:", ":".join("%02x" % b for b in dest_mac))
         # print("Source MAC address:", ":".join("%02x" % b for b in src_mac))
