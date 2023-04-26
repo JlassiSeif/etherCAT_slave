@@ -26,14 +26,14 @@ def process_diagrams(diagrams):
     DIAGRAM_HDR = diagrams[0 : 0 + LEN_DIAG_HDR].hex()
     diagram_hdr_bin = bin(int(DIAGRAM_HDR, 16))[2:].zfill(num_of_bits)
     cmd = diagram_hdr_bin[0:8]
-    inedew = diagram_hdr_bin[8:16]
+    inedex = diagram_hdr_bin[8:16]
     address = diagram_hdr_bin[16:48]
     length = diagram_hdr_bin[48:59]
     R = diagram_hdr_bin[59:62]
     C = diagram_hdr_bin[62:63]
     M = diagram_hdr_bin[63:64]
     IRQ = diagram_hdr_bin[64:79]
-    print(R, C, M, IRQ)
+    print(cmd, inedex, address, length, R, C, M, IRQ)
 
 
 try:
