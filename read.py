@@ -17,6 +17,8 @@ END_ETH_TYPE = 14
 START_ETHC_HDR = 14
 END_ETHC_HDR = 16
 
+START_ETHC_DATAG = 16
+
 
 def get_bytes(a):
     return a * 2
@@ -41,19 +43,14 @@ try:
 
         if eth_type == "88a4":  # 0x88a4:
             eth_cat_header = frame[START_ETHC_HDR:END_ETHC_HDR].hex()
-            print(eth_cat_header)
             num_of_bits = 16
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
-            print(from_binary)
             length_datagrams = int(from_binary[0:11], 2)
             resereved = from_binary[12]
             ethcat_type = from_binary[13:]
-            process_diagrams(hex_frame[: length_datagrams // 8])
-        # # print the destination and source MAC addresses and Ethernet protocol type
-        # print("Destination MAC address:", ":".join("%02x" % b for b in dest_mac))
-        # print("Source MAC address:", ":".join("%02x" % b for b in src_mac))
-        # print("Ethernet protocol type:", hex(eth_type))
-        # print("Payload:", frame[14:])
+            length_byte = length_datagrams // 8
+            process_diagrams(frame[START_ETHC_DATAG : START_ETHC_DATAG + length_byte])
+
 
 finally:
     # set the socket back to normal mode
