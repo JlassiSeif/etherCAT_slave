@@ -20,6 +20,7 @@ try:
         # extract the Ethernet protocol type from the frame
         eth_type = int.from_bytes(frame[12:14], byteorder="big")
         eth_cat_header = int.from_bytes(frame[14:16], byteorder="big")
+        print(bin(eth_cat_header))
         from_binary = bin(eth_cat_header)
         length_datagrams = from_binary[0:11]
         resereved = from_binary[12]
