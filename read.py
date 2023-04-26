@@ -11,14 +11,14 @@ try:
     while True:
         # read an incoming Ethernet frame
         # frame, addr = s.recvfrom(65535)
-        frame = s.recv(1518)
+        frame = s.recv(1518).hex()
 
         # extract the destination and source MAC addresses from the frame
-        dest_mac = frame[:6]
+        dest_mac = frame[:6].hex()
         src_mac = frame[6:12]
 
         # extract the Ethernet protocol type from the frame
-        eth_type = int.from_bytes(frame[12:14], byteorder="big")
+        eth_type = int(frame[12:14])
         if eth_type == 34980:  # 0x88a4:
             print(frame)
             print(len(frame))
