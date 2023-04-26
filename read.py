@@ -22,7 +22,7 @@ try:
         src_mac = hex_frame[get_bytes(6) : get_bytes(12)]
 
         # extract the Ethernet protocol type from the frame
-        eth_type = frame[get_bytes(12) : get_bytes(14)]
+        eth_type = hex_frame[get_bytes(12) : get_bytes(14)]
         print(eth_type)
         if eth_type == "88a4":  # 0x88a4:
             print(frame)
