@@ -40,7 +40,7 @@ try:
 
         # extract the Ethernet protocol type from the frame
         eth_type = frame[START_ETH_TYPE:END_ETH_TYPE].hex()
-
+        print(eth_type)
         if eth_type == "88a4":  # 0x88a4:
             eth_cat_header = frame[START_ETHC_HDR:END_ETHC_HDR].hex()
             num_of_bits = 16
