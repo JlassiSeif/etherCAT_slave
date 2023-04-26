@@ -25,15 +25,15 @@ LEN_DIAG_HDR = 10
 def process_diagrams(diagrams):
     DIAGRAM_HDR = diagrams[0 : 0 + LEN_DIAG_HDR].hex()
     diagram_hdr_bin = bin(int(DIAGRAM_HDR, 16))[2:].zfill(num_of_bits)
-    cmd = diagram_hdr_bin[0:8]
-    inedex = diagram_hdr_bin[8:16]
-    address = diagram_hdr_bin[16:48]
+    cmd = DIAGRAM_HDR[0]
+    inedex = DIAGRAM_HDR[1]
+    address = DIAGRAM_HDR[2:6]
     length = diagram_hdr_bin[48:59]
     R = diagram_hdr_bin[59:62]
     C = diagram_hdr_bin[62:63]
     M = diagram_hdr_bin[63:64]
     IRQ = diagram_hdr_bin[64:79]
-    print(cmd)
+    print(cmd, inedex, address)
 
 
 try:
@@ -51,9 +51,9 @@ try:
             eth_cat_header = frame[START_ETHC_HDR:END_ETHC_HDR].hex()
             num_of_bits = 16
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
-            length_datagrams = int(from_binary[5:16], 2)
-            resereved = from_binary[4:5]
-            ethcat_type = from_binary[0:4]
+            length_datagrams = int(from_binary[:11], 2)
+            resereved = from_binary[11:12]
+            ethcat_type = from_binary[12:4]
 
             length_byte = length_datagrams // 8
             # print(length_byte)
