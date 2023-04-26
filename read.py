@@ -27,11 +27,11 @@ try:
         if eth_type == "88a4":  # 0x88a4:
             eth_cat_header = frame[get_bytes(14) : get_bytes(16)]
             print(eth_cat_header)
-            num_of_bits = 16
-            from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
-            length_datagrams = from_binary[0:11]
-            resereved = from_binary[12]
-            ethcat_type = from_binary[13:]
+            # num_of_bits = 16
+            # from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
+            # length_datagrams = from_binary[0:11]
+            # resereved = from_binary[12]
+            # ethcat_type = from_binary[13:]
         # # print the destination and source MAC addresses and Ethernet protocol type
         # print("Destination MAC address:", ":".join("%02x" % b for b in dest_mac))
         # print("Source MAC address:", ":".join("%02x" % b for b in src_mac))
