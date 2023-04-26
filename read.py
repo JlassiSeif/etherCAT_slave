@@ -23,9 +23,8 @@ try:
 
         # extract the Ethernet protocol type from the frame
         eth_type = hex_frame[get_bytes(12) : get_bytes(14)]
-        print(eth_type)
         if eth_type == "88a4":  # 0x88a4:
-            eth_cat_header = frame[get_bytes(14) : get_bytes(16)]
+            eth_cat_header = hex_frame[get_bytes(14) : get_bytes(16)]
             print(eth_cat_header)
             # num_of_bits = 16
             # from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
