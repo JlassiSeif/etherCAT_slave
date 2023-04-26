@@ -39,8 +39,10 @@ def process_diagrams(diagrams):
 try:
     while True:
         frame = s.recv(1518)
-        hex_frame = frame.hex()
         print("aaaaaaaaaaaaa")
+        print(frame)
+        hex_frame = frame.hex()
+
         print(hex_frame)
         print("aaaaaaaaaaaaa")
         # extract the destination and source MAC addresses from the frame
