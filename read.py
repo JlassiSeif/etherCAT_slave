@@ -33,7 +33,7 @@ def process_diagrams(diagrams):
     C = diagram_hdr_bin[62:63]
     M = diagram_hdr_bin[63:64]
     IRQ = diagram_hdr_bin[64:79]
-    print(cmd, inedex, address, length, R, C, M, IRQ)
+    print(cmd, inedex, address, int(length, 2), R, C, M, IRQ)
 
 
 try:
