@@ -16,7 +16,7 @@ try:
         # extract the destination and source MAC addresses from the frame
         dest_mac = frame[:6]
         src_mac = frame[6:12]
-        print(bin(int.from_bytes(src_mac)))
+        print(bin(int.from_bytes(src_mac, byteorder="big")))
         # extract the Ethernet protocol type from the frame
         eth_type = int.from_bytes(frame[12:14], byteorder="big")
         if eth_type == 34980:  # 0x88a4:
