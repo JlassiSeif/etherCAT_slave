@@ -23,6 +23,7 @@ try:
             num_of_bits = 16
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
             length_datagrams = from_binary[0:11]
+            print(int(length_datagrams, 2))
             resereved = from_binary[12]
             ethcat_type = from_binary[13:]
             print(length_datagrams, resereved, ethcat_type)
