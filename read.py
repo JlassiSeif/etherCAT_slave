@@ -40,7 +40,9 @@ try:
     while True:
         frame = s.recv(1518)
         hex_frame = frame.hex()
-
+        print("aaaaaaaaaaaaa")
+        print(hex_frame)
+        print("aaaaaaaaaaaaa")
         # extract the destination and source MAC addresses from the frame
         dest_mac = frame[START_DEST_MAC:END_DEST_MAC].hex()
         src_mac = frame[START_SRC_MAC:END_SRC_MAC].hex()

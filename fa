@@ -1,0 +1,73 @@
+MAC address DEST
+ff
+ff
+ff
+ff
+ff
+ff
+MAC address SRC
+01
+01
+01
+01
+01
+01
+ETHER TYPE
+88
+a4
+ETHERCAT HDR
+0d
+10
+DATAGRAMS
+DATAGRAM HDR
+cmd
+08
+idx
+01
+address
+00
+00
+03
+01
+Len, R, C, M
+01
+00
+IRQ
+00
+00
+DATA 28 Bytes
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+00
+FCS
+00
+00
+00
+00
