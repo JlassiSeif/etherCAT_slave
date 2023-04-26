@@ -18,8 +18,8 @@ try:
         src_mac = frame[6:12]
 
         # extract the Ethernet protocol type from the frame
+        eth_type = int.from_bytes(frame[12:14], byteorder="big")
         if hex(eth_type) == 0x88A4:
-            eth_type = int.from_bytes(frame[12:14], byteorder="big")
             eth_cat_header = int.from_bytes(frame[14:16], byteorder="big")
             print(bin(eth_cat_header))
             from_binary = bin(eth_cat_header)
