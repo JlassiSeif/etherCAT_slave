@@ -19,19 +19,25 @@ END_ETHC_HDR = 16
 
 START_ETHC_DATAG = 16
 
-
-def get_bytes(a):
-    return a * 2
+LEN_DIAG_HDR = 10
 
 
 def process_diagrams(diagrams):
-    pass
+    DIAGRAM_HDR = diagrams[0 : 0 + LEN_DIAG_HDR].hex()
+    diagram_hdr_bin = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
+    cmd = diagram_hdr_bin[0:8]
+    inedew = diagram_hdr_bin[8:16]
+    address = diagram_hdr_bin[16:48]
+    length = diagram_hdr_bin[48:59]
+    R = diagram_hdr_bin[59:62]
+    C = diagram_hdr_bin[62:63]
+    M = diagram_hdr_bin[63:64]
+    IRQ = diagram_hdr_bin[64:79]
+    print(R, C, M, IRQ)
 
 
 try:
     while True:
-        # read an incoming Ethernet frame
-        # frame, addr = s.recvfrom(65535)
         frame = s.recv(1518)
         hex_frame = frame.hex()
         # extract the destination and source MAC addresses from the frame
@@ -40,7 +46,6 @@ try:
 
         # extract the Ethernet protocol type from the frame
         eth_type = frame[START_ETH_TYPE:END_ETH_TYPE].hex()
-        print(eth_type)
         if eth_type == "88a4":  # 0x88a4:
             eth_cat_header = frame[START_ETHC_HDR:END_ETHC_HDR].hex()
             num_of_bits = 16
