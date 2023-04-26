@@ -7,21 +7,23 @@ s = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL))
 s.bind(("eth0", 0))
 
 
+def get_bytes(a):
+    return a * 2
+
+
 try:
     while True:
         # read an incoming Ethernet frame
         # frame, addr = s.recvfrom(65535)
         frame = s.recv(1518)
         hex_frame = frame.hex()
-        print(hex_frame)
         # extract the destination and source MAC addresses from the frame
-        dest_mac = frame[:6]
-        print(dest_mac)
-        src_mac = frame[6:12]
+        dest_mac = hex_frame[: get_bytes(6)]
+        src_mac = hex_frame[get_bytes(6) : get_bytes(12)]
 
         # extract the Ethernet protocol type from the frame
-        eth_type = int(frame[12:14], 16)
-        if eth_type == 34980:  # 0x88a4:
+        eth_type = frame[get_bytes(12) : get_bytes(14)]
+        if eth_type == "88a4":  # 0x88a4:
             print(frame)
             print(len(frame))
             print(len(src_mac))
