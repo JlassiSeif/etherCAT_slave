@@ -20,7 +20,8 @@ try:
         eth_type = int.from_bytes(frame[12:14], byteorder="big")
         if eth_type == 34980:  # 0x88a4:
             eth_cat_header = frame[14:16].hex()
-            from_binary = bin(int(hex(eth_cat_header)))
+            num_of_bits = 16
+            from_binary = bin(int(eth_cat_header))[2:].zfill(num_of_bits)
             length_datagrams = from_binary[0:11]
             resereved = from_binary[12]
             ethcat_type = from_binary[13:]
