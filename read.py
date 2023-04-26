@@ -15,7 +15,7 @@ try:
         hex_frame = frame.hex()
         print(hex_frame)
         # extract the destination and source MAC addresses from the frame
-        dest_mac = frame[:6]
+        dest_mac = hex_frame[:6]
         print(dest_mac)
         src_mac = frame[6:12]
 
