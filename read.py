@@ -20,8 +20,9 @@ try:
         eth_type = int.from_bytes(frame[12:14], byteorder="big")
         if eth_type == 34980:  # 0x88a4:
             print(frame[14:16])
-            eth_cat_header = hex(int.from_bytes(frame[14:17], byteorder="big"))
-            print(eth_cat_header)
+            print(frame[14:16].hex())
+            # eth_cat_header = hex(int.from_bytes(frame[14:17], byteorder="big"))
+            # print(eth_cat_header.hex())
             # print(bin(int.from_bytes(src_mac, byteorder="big")), 6)
             # print(bin(eth_cat_header), 2)
             # from_binary = bin(eth_cat_header)
