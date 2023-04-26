@@ -55,6 +55,7 @@ try:
             ethcat_type = from_binary[0:4]
 
             length_byte = length_datagrams // 8
+            print(length_byte)
             print(from_binary)
             print(ethcat_type, resereved, from_binary[5:16])
             process_diagrams(frame[START_ETHC_DATAG : START_ETHC_DATAG + length_byte])
