@@ -33,18 +33,14 @@ def process_diagrams(diagrams):
     C = diagram_hdr_bin[62:63]
     M = diagram_hdr_bin[63:64]
     IRQ = diagram_hdr_bin[64:79]
-    print(cmd, inedex, address, int(length, 2), R, C, M, IRQ)
+    print(R, C, M)
 
 
 try:
     while True:
         frame = s.recv(1518)
-        print("aaaaaaaaaaaaa")
-        print(frame)
         hex_frame = frame.hex()
 
-        print(hex_frame)
-        print("aaaaaaaaaaaaa")
         # extract the destination and source MAC addresses from the frame
         dest_mac = frame[START_DEST_MAC:END_DEST_MAC].hex()
         src_mac = frame[START_SRC_MAC:END_SRC_MAC].hex()

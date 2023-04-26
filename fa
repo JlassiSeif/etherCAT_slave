@@ -16,6 +16,7 @@ ETHER TYPE
 88
 a4
 ETHERCAT HDR
+length, res, type
 0d
 10
 DATAGRAMS
@@ -66,8 +67,8 @@ DATA 28 Bytes
 00
 00
 00
-FCS
 00
 00
 00
 00
+FCS not seen
