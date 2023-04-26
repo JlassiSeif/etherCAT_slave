@@ -24,7 +24,7 @@ LEN_DIAG_HDR = 10
 
 def process_diagrams(diagrams):
     DIAGRAM_HDR = diagrams[0 : 0 + LEN_DIAG_HDR].hex()
-    diagram_hdr_bin = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
+    diagram_hdr_bin = bin(int(DIAGRAM_HDR, 16))[2:].zfill(num_of_bits)
     cmd = diagram_hdr_bin[0:8]
     inedew = diagram_hdr_bin[8:16]
     address = diagram_hdr_bin[16:48]
