@@ -16,11 +16,10 @@ try:
         # extract the destination and source MAC addresses from the frame
         dest_mac = frame[:6]
         src_mac = frame[6:12]
-
+        print(bin(src_mac))
         # extract the Ethernet protocol type from the frame
         eth_type = int.from_bytes(frame[12:14], byteorder="big")
-        print(hex(eth_type))
-        if eth_type == 34980:
+        if eth_type == 34980:  # 0x88a4:
             eth_cat_header = int.from_bytes(frame[14:16], byteorder="big")
             print(bin(eth_cat_header))
             from_binary = bin(eth_cat_header)
