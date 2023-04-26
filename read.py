@@ -19,8 +19,8 @@ try:
 
         # extract the Ethernet protocol type from the frame
         eth_type = int.from_bytes(frame[12:14], byteorder="big")
-        print(eth_type)
-        if hex(eth_type) == 0x88A4:
+        print(hex(eth_type))
+        if eth_type == 34980:
             eth_cat_header = int.from_bytes(frame[14:16], byteorder="big")
             print(bin(eth_cat_header))
             from_binary = bin(eth_cat_header)
