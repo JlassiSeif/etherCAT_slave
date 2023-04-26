@@ -25,17 +25,16 @@ try:
         eth_type = hex_frame[get_bytes(12) : get_bytes(14)]
         print(eth_type)
         if eth_type == "88a4":  # 0x88a4:
-            print(frame)
             print(len(frame))
-            print(len(src_mac))
+            print(len(dest_mac) // 2)
+            print(len(src_mac) // 2)
+
             eth_cat_header = frame[14:16].hex()
             num_of_bits = 16
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
             length_datagrams = from_binary[0:11]
-            print(int(length_datagrams, 2))
             resereved = from_binary[12]
             ethcat_type = from_binary[13:]
-            print(length_datagrams, resereved, ethcat_type)
         # # print the destination and source MAC addresses and Ethernet protocol type
         # print("Destination MAC address:", ":".join("%02x" % b for b in dest_mac))
         # print("Source MAC address:", ":".join("%02x" % b for b in src_mac))
