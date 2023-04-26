@@ -16,10 +16,11 @@ try:
         print(hex_frame)
         # extract the destination and source MAC addresses from the frame
         dest_mac = frame[:6]
+        print(dest_mac)
         src_mac = frame[6:12]
 
         # extract the Ethernet protocol type from the frame
-        eth_type = int(frame[12:14])
+        eth_type = int(frame[12:14], 16)
         if eth_type == 34980:  # 0x88a4:
             print(frame)
             print(len(frame))
