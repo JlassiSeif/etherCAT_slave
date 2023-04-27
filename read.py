@@ -105,7 +105,7 @@ try:
             from_binary = bin(int(eth_cat_header, 16))[2:].zfill(num_of_bits)
             Frame_dict["length_datagrams"] = int(from_binary[:11], 2)
             Frame_dict["resereved"] = from_binary[11:12]
-            Frame_dict["Protocol_type"] = from_binary[12:4]
+            Frame_dict["Protocol_type"] = from_binary[12:14]
             length_byte = Frame_dict["length_datagrams"] // 8
             # print(length_byte)
             # print(from_binary)
