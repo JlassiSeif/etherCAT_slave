@@ -106,7 +106,7 @@ try:
             Frame_dict["length_datagrams"] = int(from_binary[:11], 2)
             Frame_dict["resereved"] = from_binary[11:12]
             Frame_dict["Protocol_type"] = from_binary[12:4]
-
+            print(Frame_dict["length_datagrams"])
             length_byte = int(Frame_dict["length_datagrams"], 2) // 8
             # print(length_byte)
             # print(from_binary)
