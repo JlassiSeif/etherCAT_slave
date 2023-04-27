@@ -43,7 +43,7 @@ commands = {
 
 def pprint(id, frame_dict):
     print(f'Frame {id}: {frame_dict["frame_length"]} bytes captured.')
-    print(f'src: {frame_dict["sr_mac"]}, Dest: {frame_dict["dest_mac"]}')
+    print(f'src: {frame_dict["src_mac"]}, Dest: {frame_dict["dest_mac"]}')
     print(f"EtherCAT frame header")
     print(
         f'    Length {hex(int(frame_dict["length_datagrams"],2))} = {frame_dict["length_datagrams"]}'
