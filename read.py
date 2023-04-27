@@ -59,13 +59,13 @@ def pprint(id, frame_dict):
     print(
         f'        Command     : {commands[Frame_dict["cmd"]]} ({hex(int(Frame_dict["cmd"],2))})'
     )
-    print(f'        Index       : {hex(int(Frame_dict["inedex"],2))}')
-    print(f'        Log Addr    : {hex(int(Frame_dict["address"],2))}')
+    print(f'        Index       : {Frame_dict["inedex"]}')
+    print(f'        Log Addr    : {Frame_dict["address"]}')
     print(f'        Length      : {int(Frame_dict["length"],2)}')
     print(f'            Reserved   = {Frame_dict["R"]}')
     print(f'            Round Trip = {Frame_dict["C"]}')
     print(f'            Last Indicator = {Frame_dict["M"]}')
-    print(f'        Interrupt   : {hex(int(Frame_dict["length"],2))}')
+    print(f'        Interrupt   : {Frame_dict["IRQ"]}')
     print(f'    Data    : {Frame_dict["diagram_data"]}')
     print(f'    Working Counter : {Frame_dict["diagram_data"]}')
 
