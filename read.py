@@ -60,8 +60,8 @@ def pprint(id, frame_dict):
     print(
         f'        Command     : {commands[Frame_dict["cmd"]]} ({hex(int(Frame_dict["cmd"],2))})'
     )
-    print(f'        Index       : {hex(Frame_dict["inedex"])}')
-    print(f'        Log Addr    : {hex(Frame_dict["address"])}')
+    print(f'        Index       : {hex(int(Frame_dict["inedex"],16))}')
+    print(f'        Log Addr    : {hex(int(Frame_dict["address"],16))}')
     print(f'        Length      : {int(Frame_dict["length"],2)}')
     print(f'            Reserved       = {Frame_dict["R"]}')
     print(f'            Round Trip     = {Frame_dict["C"]}')
