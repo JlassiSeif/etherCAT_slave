@@ -1,4 +1,5 @@
 import socket
+from send import send
 
 # https://download.beckhoff.com/download/document/io/ethercat-development-products/ethercat_esc_datasheet_sec1_technology_2i3.pdf
 ETH_P_ALL = 3
@@ -117,6 +118,7 @@ try:
             # print(ethcat_type, resereved, from_binary[5:16])
             process_diagrams(frame[START_ETHC_DATAG : START_ETHC_DATAG + length_byte])
             pprint(1, Frame_dict)
+            send()
 
 finally:
     # set the socket back to normal mode
