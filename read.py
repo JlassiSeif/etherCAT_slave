@@ -116,7 +116,7 @@ try:
             # print(from_binary)
             # print(ethcat_type, resereved, from_binary[5:16])
             process_diagrams(frame[START_ETHC_DATAG : START_ETHC_DATAG + length_byte])
-            # pprint(1, Frame_dict)
+            pprint(1, Frame_dict)
 
 finally:
     # set the socket back to normal mode
