@@ -42,6 +42,7 @@ commands = {
 
 
 def pprint(id, frame_dict):
+    print("<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>")
     print(f'Frame {id}: {frame_dict["frame_length"]} bytes captured.')
     print(f'src: {frame_dict["src_mac"]}, Dest: {frame_dict["dest_mac"]}')
     print(f"EtherCAT frame header")
