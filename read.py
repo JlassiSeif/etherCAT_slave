@@ -72,6 +72,7 @@ def pprint(id, frame_dict):
 
 
 def process_diagrams(diagrams):
+    print(len(diagrams))
     DIAGRAM_HDR = diagrams[0 : 0 + LEN_DIAG_HDR].hex()
     Frame_dict["cmd"] = DIAGRAM_HDR[0]
     Frame_dict["inedex"] = DIAGRAM_HDR[1]
