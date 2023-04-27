@@ -46,7 +46,7 @@ def pprint(id, frame_dict):
     print(f'src: {frame_dict["src_mac"]}, Dest: {frame_dict["dest_mac"]}')
     print(f"EtherCAT frame header")
     print(
-        f'    Length {hex(int(frame_dict["length_datagrams"],2))} = {frame_dict["length_datagrams"]}'
+        f'    Length {hex(frame_dict["length_datagrams"])} = {frame_dict["length_datagrams"]}'
     )
     print(
         f'    Reserved {hex(int(Frame_dict["resereved"],2))} = {Frame_dict["resereved"]}'
