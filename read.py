@@ -67,7 +67,7 @@ def pprint(id, frame_dict):
     print(f'            Reserved       = {Frame_dict["R"]}')
     print(f'            Round Trip     = {Frame_dict["C"]}')
     print(f'            Last Indicator = {Frame_dict["M"]}')
-    print(f'        Interrupt   : {Frame_dict["IRQ"]}')
+    print(f'        Interrupt   : {hex(int(Frame_dict["IRQ"],16))}')
     print(f'    Data    : {Frame_dict["diagram_data"]}')
     print(f'    Working Counter : {Frame_dict["diagram_data"]}')
 
@@ -75,16 +75,16 @@ def pprint(id, frame_dict):
 def process_diagrams(diagrams):
     print(len(diagrams))
     DIAGRAM_HDR = diagrams[0 : 0 + LEN_DIAG_HDR].hex()
-    Frame_dict["cmd"] = DIAGRAM_HDR[0]
-    Frame_dict["inedex"] = DIAGRAM_HDR[1]
+    Frame_dict["cmd"] = DIAGRAM_HDR[0:1]
+    Frame_dict["inedex"] = DIAGRAM_HDR[1:2]
     Frame_dict["address"] = DIAGRAM_HDR[2:6]
-    len_r_c_m = DIAGRAM_HDR[7:9]
+    len_r_c_m = DIAGRAM_HDR[6:8]
     len_r_c_m = bin(int(len_r_c_m, 16))[2:].zfill(16)
     Frame_dict["length"] = len_r_c_m[:11]
     Frame_dict["R"] = len_r_c_m[11:14]
     Frame_dict["C"] = len_r_c_m[14:15]
     Frame_dict["M"] = len_r_c_m[15:]
-    Frame_dict["IRQ"] = DIAGRAM_HDR[9:11]
+    Frame_dict["IRQ"] = DIAGRAM_HDR[8:10]
     l = int(Frame_dict["length"], 2)
     Frame_dict["diagram_data"] = diagrams[LEN_DIAG_HDR : LEN_DIAG_HDR + l]
     Frame_dict["working_counter"] = diagrams[
