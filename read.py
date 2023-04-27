@@ -45,6 +45,7 @@ def pprint(id, frame_dict):
     print("<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>")
     print(f'Frame {id}: {frame_dict["frame_length"]} bytes captured.')
     print(f'src: {frame_dict["src_mac"]}, Dest: {frame_dict["dest_mac"]}')
+    print(f'ether_type: {Frame_dict["eth_type"]}')
     print(f"EtherCAT frame header")
     print(
         f'    Length {hex(frame_dict["length_datagrams"])} = {frame_dict["length_datagrams"]}'
@@ -85,9 +86,10 @@ def process_diagrams(diagrams):
     Frame_dict["M"] = len_r_c_m[15:]
     Frame_dict["IRQ"] = DIAGRAM_HDR[9:11]
     l = int(Frame_dict["length"], 2)
-    print(diagrams[LEN_DIAG_HDR + l : LEN_DIAG_HDR + l + 2])
     Frame_dict["diagram_data"] = diagrams[LEN_DIAG_HDR : LEN_DIAG_HDR + l]
-    Frame_dict["working_counter"] = diagrams[LEN_DIAG_HDR + l : LEN_DIAG_HDR + l + 2]
+    Frame_dict["working_counter"] = diagrams[
+        LEN_DIAG_HDR + l : LEN_DIAG_HDR + l + 2
+    ].hex()
 
 
 try:
