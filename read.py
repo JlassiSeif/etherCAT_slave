@@ -84,6 +84,7 @@ def process_diagrams(diagrams):
     Frame_dict["M"] = len_r_c_m[15:]
     Frame_dict["IRQ"] = DIAGRAM_HDR[9:11]
     l = int(Frame_dict["length"], 2)
+    print(l)
     Frame_dict["diagram_data"] = diagrams[LEN_DIAG_HDR : LEN_DIAG_HDR + l]
     Frame_dict["working_counter"] = diagrams[LEN_DIAG_HDR + l : LEN_DIAG_HDR + l + 2]
 
@@ -112,7 +113,7 @@ try:
             # print(from_binary)
             # print(ethcat_type, resereved, from_binary[5:16])
             process_diagrams(frame[START_ETHC_DATAG : START_ETHC_DATAG + length_byte])
-            pprint(1, Frame_dict)
+            # pprint(1, Frame_dict)
 
 finally:
     # set the socket back to normal mode
